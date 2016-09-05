@@ -54,9 +54,9 @@ Test cases:
 *	String with multiple palindromic substrings, including a shorter palindromic string which is part of the left half of a longer palindromic string (see code, must return the longest palindromic string).
 
 Efficiency (worst case):
-*	In the first iteration of the outer loop, the inner loop is repeated (len(a)-1) times.
-* In the subsequent iterations, the inner loop is repeated (len(a)-2), (len(a)-3) etc. times.
-*	The worst case efficiency must therefore be **O (n!)**.
+*	In the first iteration of the outer loop, the inner loop is repeated a maximum of (len(a)-1) times.
+* In the subsequent iterations, the inner loop is repeated a maximum of (len(a)-2) times.
+*	The worst case efficiency must therefore be **O (n^2)**.
 
 **Question 3**
 
