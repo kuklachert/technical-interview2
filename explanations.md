@@ -83,7 +83,7 @@ Efficiency (worst case):
 *	The inner loop is repeated (n-1) times.
 *	The final check (is every node represented in the adjacency list?) is done using m iterations.
 *	The overall number of operations is therefore n+2m+n*log(n)+(n-1)(n-2).
-*	I presume the worst case efficiency would in this case be **O(n^2)** corresponding to the least efficient part of the algorithm.
+*	I presume the worst case efficiency would in this case be **O(n^2)** corresponding to the least efficient section of the algorithm.
 	
 Question 4
 
