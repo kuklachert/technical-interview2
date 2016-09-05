@@ -112,14 +112,18 @@ Efficiency (worst case):
 * The overall efficiency must therefore be **O (n ^ 2)**.
 
 Question 5
+
 Approach:
-•	Loop through every element of ll, starting from the head.
-•	For each element, check if the mth next element from this element exists.
-•	If no mth  next element is found, this means that the current element is m elements away from the end and therefore the one we were searching for.
+* Identify the m-th next element from the head. The head and the m-th next element are the 1st and the 2nd cursor.
+* Move both cursors one element to the right until the 2nd cursor finds the end ot the linked list.
+
 Test cases:
-•	Boundary case: ll is None (must return None)
-•	Boundary case: m is larger than the length of ll (must return None)
-•	m = 1 (see code, must return the last element of ll)
-•	“Normal case”: 1 < m < length of ll (see code, must return the element that is the mth away from the end).
-Efficiency:
-•	As we loop through ll once and make m checks in every iteration, the efficiency must be O (m * n), where n represents the length of ll.
+* Boundary case: ll is None (must return None)
+* Boundary case: m is larger than the length of ll (must return None)
+* m = 1 (see code, must return the last element of ll)
+* “Normal case”: 1 < m < length of ll (see code, must return the element that is the mth away from the end).
+
+Efficiency (worst case):
+* To find the m-th next element from the head, m steps are needed.
+* The *while* loop moving both cursors to the right takes (length of ll - m) steps.
+* This results in the worst case efficiency of **O (n)**.
