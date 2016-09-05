@@ -43,7 +43,7 @@ Assumptions/definitions:
 Approach:
 
 *	Loop through every character of the input string as the potential starting character of a palindromic string.
-* For each starting character, check every possible substring (by looping through all the characters on the right) for a palindrome:
+* For each starting character, check every possible substring (by looping through all the characters to the right of the starting character) for a palindrome. To check for palindromes, do the following:
   - If a given substring has an even number of characters (Type 1), compare the left half to the inverse of the right half
   - If the number of characters is odd (Type 2), compare the substring to the left of the middle character with the inverse of the substring to the right.
 * If a palindrome is found, compare it to the current longest palindrome and overwrite if the new palindrome is longer.
@@ -61,25 +61,30 @@ Efficiency (worst case):
 **Question 3**
 
 Approach:
-•	Start with the lightest edge (i. e. the edge with the lowest weight) and add it to the (formerly empty) adjacency list. The presence in the adjacency list serves as a “connected” marker for both nodes connected by the lightest edge.
-•	Loop through the remaining edges in the following order: second-lightest edge, third-lightest edge etc. (the edges must be sorted beforehand).
-•	If an edge is found that adds a further node to the spanning tree (i.e. it connects a connected node to an unconnected one), add it to the adjacency list.
-•	Repeat the loop (always starting from the second-lightest edge) (n-2) number of times, where n is the total number of nodes. 
+*	Start with the lightest edge (i. e. the edge with the lowest weight) and add it to the (formerly empty) adjacency list. The presence in the adjacency list serves as a “connected” marker for both nodes connected by the lightest edge.
+*	Loop through the remaining edges in the following order: second-lightest edge, third-lightest edge etc. (the edges must be sorted beforehand).
+*	If an edge is found that adds a further node to the spanning tree (i.e. it connects a connected node to an unconnected one), add it to the adjacency list.
+*	Repeat the loop (always starting from the second-lightest edge) (n-2) number of times, where n is the total number of nodes. 
 Every iteration should connect a new node to the spanning tree, and with the first 2 nodes already added during the initial step, (n-2) steps must be enough to connect all the nodes.
-•	Check if every node is represented in the spanning tree. If not every node is represented, there are parts of the graph disconnected from the starting point which means no spanning tree exists.
+*	Check if every node is represented in the spanning tree. If not every node is represented, there are parts of the graph disconnected from the starting point which means no spanning tree exists.
+
 Test cases:
-•	Boundary case: None as input (must return None)
-•	Boundary case: empty graph (must return None)
-•	Disconnected graph (see code, must return None)
-•	Connected graph (see code, must return the shortest spanning tree).
+*	Boundary case: None as input (must return None)
+*	Boundary case: empty graph (must return None)
+*	Disconnected graph (see code, must return None)
+*	Connected graph (see code, must return the shortest spanning tree).
+
 Efficiency (worst case):
-•	Let m be the number of edges in the graph and n be the number of nodes.
-•	The creation of the nodes list would take m iterations, as every edge is being looped through.
-•	Assuming that Python’s sort function uses one of the quicker search algorithms (such as Merge Sort), it would take m*log(m) times to sort all the edges by their weight.
-•	The outer loop is repeated (m-2) times.
-•	The inner loop is repeated (m-1) times.
-•	The final check (is every node represented in the adjacency list?) is done using n iterations.
-•	The overall efficiency can be therefore estimated as O(m+m*log(m)+m^2+n) or, after approximation, O (m * (m + log(m)) + n).
+*	Let n be the number of edges in the graph and m be the number of nodes.
+* The creation of the nodes list would take n iterations.
+*	The creation of the edges list would take m iterations.
+*	Assuming that Python’s sort function uses one of the quicker search algorithms (such as Merge Sort), it would take n*log(n) times to sort all the edges by their weight.
+*	The outer loop is repeated (n-2) times.
+*	The inner loop is repeated (n-1) times.
+*	The final check (is every node represented in the adjacency list?) is done using m iterations.
+*	The overall number of operations is therefore n+2m+n*log(n)+(n-1)(n-2)
+*	I presume the worst case efficiency would in this case be **O(n^2)** corresponding to the least efficient part of the algorithm.
+	
 Question 4
 Assumptions/definitions:
 •	As stated in the project description, I assume that T does indeed adhere to all BST rules and both n1 and n2 exist in T. This allows me to bypass multiple tedious plausibility checks that would be needed to be run without the assumption.
