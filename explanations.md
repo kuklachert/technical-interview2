@@ -85,7 +85,7 @@ Efficiency (worst case):
 *	The overall number of operations is therefore n+2m+n*log(n)+(n-1)(n-2).
 *	I presume the worst case efficiency would in this case be **O(n^2)** corresponding to the least efficient section of the algorithm.
 	
-Question 4
+**Question 4**
 
 Assumptions/definitions:
 
@@ -111,7 +111,7 @@ Efficiency (worst case):
 * To go down the tree and compare n1 and n2 to the current starting node, the maximum number of iterations is equal to the number of levels in the tree. In the worst case (every node in the tree has one child), this number is n.
 * The overall efficiency must therefore be **O (n ^ 2)**.
 
-Question 5
+**Question 5**
 
 Approach:
 * Identify the m-th next element from the head. The head and the m-th next element are the 1st and the 2nd cursor.
