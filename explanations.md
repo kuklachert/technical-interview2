@@ -82,29 +82,35 @@ Efficiency (worst case):
 *	The outer loop is repeated (n-2) times.
 *	The inner loop is repeated (n-1) times.
 *	The final check (is every node represented in the adjacency list?) is done using m iterations.
-*	The overall number of operations is therefore n+2m+n*log(n)+(n-1)(n-2)
+*	The overall number of operations is therefore n+2m+n*log(n)+(n-1)(n-2).
 *	I presume the worst case efficiency would in this case be **O(n^2)** corresponding to the least efficient part of the algorithm.
 	
 Question 4
+
 Assumptions/definitions:
-•	As stated in the project description, I assume that T does indeed adhere to all BST rules and both n1 and n2 exist in T. This allows me to bypass multiple tedious plausibility checks that would be needed to be run without the assumption.
+
+* As stated in the project description, I assume that T does indeed adhere to all BST rules and both n1 and n2 exist in T. This allows me to bypass multiple tedious plausibility checks that would be needed to be run without the assumption.
+
 Approach:
-•	Use the root as the starting node
-•	If n1 and n2 are on the opposite sides of the starting node (i. e. one of the two is larger and the other one is smaller than the node), the starting node is the lowest common ancestor (LCA) due to properties of the BST.
-•	If n1 and n2 are on the same side of the starting node, move the starting node to the child of the previous starting node that is on the same side of the root as n1 and n2 and repeat the previous step.
-•	At some point, n1 and n2 would be split by the current starting node which would mean the current starting node is the LCA.
+* Use the root as the starting node
+* If n1 and n2 are on the opposite sides of the starting node (i. e. one of the two is larger and the other one is smaller than the node), the starting node is the lowest common ancestor (LCA) due to properties of the BST.
+* If n1 and n2 are on the same side of the starting node, move the starting node to the child of the previous starting node that is on the same side of the root as n1 and n2 and repeat the previous step.
+* At some point, n1 and n2 would be split by the current starting node which would mean the current starting node is the LCA.
+
 Test cases:
-•	Boundary case: T=None (must return None)
-•	Boundary case: r=None (must return None)
-•	n1 and n2 are directly related, i.e. one is a direct ancestor of the other (see code, must return the parent of the upper node)
-•	LCA is the root (see code, must return the root)
-•	LCA is a non-root node, n1 and n2 are on different levels of T, n1<n2 (see code, must return the LCA correctly)
-•	LCA is a non-root node, n1 and n2 are on the same level of T, n1>n2 (see code, must return the LCA correctly)
+* Boundary case: T=None (must return None)
+* Boundary case: r=None (must return None)
+* n1 and n2 are directly related, i.e. one is a direct ancestor of the other (see code, must return the parent of the upper node)
+* LCA is the root (see code, must return the root)
+* LCA is a non-root node, n1 and n2 are on different levels of T, n1<n2 (see code, must return the LCA correctly)
+* LCA is a non-root node, n1 and n2 are on the same level of T, n1>n2 (see code, must return the LCA correctly)
+
 Efficiency (worst case): 
-•	Let n represent the number of nodes in the tree.
-•	To find children of the current starting node, n iterations must be made.
-•	To go down the tree and compare n1 and n2 to the current starting node, the maximum number of iterations is equal to the number of levels in the tree. In the worst case (every node in the tree has one child), this number is n.
-•	The overall efficiency must therefore be O (n ^ 2).
+* Let n represent the number of nodes in the tree.
+* To find children of the current starting node, n iterations must be made.
+* To go down the tree and compare n1 and n2 to the current starting node, the maximum number of iterations is equal to the number of levels in the tree. In the worst case (every node in the tree has one child), this number is n.
+* The overall efficiency must therefore be **O (n ^ 2)**.
+
 Question 5
 Approach:
 •	Loop through every element of ll, starting from the head.
