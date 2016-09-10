@@ -97,6 +97,14 @@ Efficiency (worst case):
 *	The overall number of operations is therefore n+2m+n*log(n)+(n-1)(n-2).
 *	I presume the worst case efficiency would in this case be **O(n^2)** corresponding to the least efficient section of the algorithm.
 	
+Space complexity:
+* Apart from the input variables, the following additional space is used:
+  - A list with the length of m that stores every node in the graph.
+  - A list with the length of n that stores every edge in the graph.
+  - An integer counter variable used in the for loop.
+  - A dictionary containing the adjacency list. It could theoretically contain every node in the graph once and every edge in the graph twice (as every edge is assigned to each of the two nodes it connects).
+* The additional space occupied by these variables is up to (2m+3n+1), which approximates to the **O (n)** space complexity.
+	
 **Question 4**
 
 Assumptions/definitions:
@@ -123,6 +131,12 @@ Efficiency (worst case):
 * To go down the tree and compare n1 and n2 to the current starting node, the maximum number of iterations is equal to the number of levels in the tree. In the worst case (every node in the tree has one child), this number is n.
 * The overall efficiency must therefore be **O (n ^ 2)**.
 
+Space complexity:
+* Apart from the input variables, the following additional space is used:
+  - an integer variable that stores the current LCA.
+  - a list with the length of 2 that stores the children of the current LCA.
+* The overall space complexity must therefore be **O (1)**.
+
 **Question 5**
 
 Approach:
@@ -139,3 +153,9 @@ Efficiency (worst case):
 * To find the m-th next element from the head, m steps are needed.
 * The *while* loop moving both cursors to the right takes (length of ll - m) steps.
 * This results in the worst case efficiency of **O (n)**.
+
+Space complexity:
+* Apart from the input variables, the following additional space is used:
+  - A cursor variable that identifies the current element of the linked list and has the length of 1.
+  - A cursor variable that identifies the n-th next element of the linked list and has the length of 1.
+* The overall space complexity must therefore be **O (1)**.
