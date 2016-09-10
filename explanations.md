@@ -31,8 +31,8 @@ Efficiency (worst case):
 
 Space complexity:
 * Apart from the input variables, the following additional space is used:
-  - A counter variable is used in the *for* loop.
-  - An additional string variable with the length of t is passed over to the helper function q1_checkAnagram.
+  - An integer counter variable is used in the for loop.
+  - An additional string variable with the same length as t is passed over to the helper function q1_checkAnagram.
   - In the helper function q1_removeCharFromString, an integer variable is used to store the index of the char to be removed.
 * The overall space complexity must therefore be **O (n)**.
 
@@ -48,7 +48,6 @@ Assumptions/definitions:
 *	In case no palindromic strings are found in the string, the first character of the string is returned (a one-character string is technically a palindromic string). 
 
 Approach:
-
 *	Loop through every character of the input string as the potential starting character of a palindromic string.
 * For each starting character, check every possible substring (by looping through all the characters to the right of the starting character) for a palindrome. To check for palindromes, do the following:
   - If a given substring has an even number of characters (Type 1), compare the left half to the inverse of the right half
@@ -65,8 +64,11 @@ Efficiency (worst case):
 * In the subsequent iterations, the inner loop is repeated a maximum of (len(a)-2) times.
 *	The worst case efficiency must therefore be **O (n^2)**.
 
-
-
+Space complexity:
+* Apart from the input variables, the following additional space is used:
+  - To store the current longest palindrome, a string variable is used. Its maximum length can equal the length of a.
+  - Two integer counter variables are used in the for loops.
+* The overall space complexity must therefore be **O (n)**.
 
 **Question 3**
 
