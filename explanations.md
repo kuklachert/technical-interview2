@@ -29,6 +29,13 @@ Efficiency (worst case):
 *	The worst case efficiency must therefore be **O (n^3)**.
 *	In the helper function removeCharFromString, an index method is used, which may also worsen the efficiency of the main function depending on the implementation of the method in Python.
 
+Space complexity:
+* Apart from the input variables, the following additional space is used:
+  - A counter variable is used in the *for* loop.
+  - An additional string variable with the length of t is passed over to the helper function q1_checkAnagram.
+  - In the helper function q1_removeCharFromString, an integer variable is used to store the index of the char to be removed.
+* The overall space complexity must therefore be **O (n)**.
+
 **Question 2**
 
 Assumptions/definitions:
@@ -57,6 +64,9 @@ Efficiency (worst case):
 *	In the first iteration of the outer loop, the inner loop is repeated a maximum of (len(a)-1) times.
 * In the subsequent iterations, the inner loop is repeated a maximum of (len(a)-2) times.
 *	The worst case efficiency must therefore be **O (n^2)**.
+
+
+
 
 **Question 3**
 
